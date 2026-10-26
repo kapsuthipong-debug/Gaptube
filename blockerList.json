@@ -4,13 +4,18 @@
     "trigger": {
       "url-filter": ".*",
       "if-domain": [
-        "example.com"
+        "doubleclick.net",
+        "googlesyndication.com",
+        "googleadservices.com",
+        "adnxs.com"
       ],
       "resource-type": [
         "image",
         "script",
         "stylesheet",
-        "raw"
+        "raw",
+        "document",
+        "popup"
       ]
     },
     "action": {
