@@ -10,9 +10,10 @@
         "adnxs.com"
       ],
       "resource-type": [
-        "image",
         "script",
+        "image",
         "style-sheet",
+        "raw",
         "popup"
       ]
     },
