@@ -13,8 +13,6 @@
         "image",
         "script",
         "style-sheet",
-        "raw",
-        "document",
         "popup"
       ]
     },
