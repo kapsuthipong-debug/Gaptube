@@ -1,0 +1,20 @@
+
+[
+  {
+    "trigger": {
+      "url-filter": ".*",
+      "if-domain": [
+        "example.com"
+      ],
+      "resource-type": [
+        "image",
+        "script",
+        "stylesheet",
+        "raw"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  }
+]
