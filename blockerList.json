@@ -12,7 +12,7 @@
       "resource-type": [
         "image",
         "script",
-        "stylesheet",
+        "style-sheet",
         "raw",
         "document",
         "popup"
