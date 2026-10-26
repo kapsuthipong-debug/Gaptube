@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#111827">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="YT Helper">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <title>YT Helper — YouTube ส่วนตัว</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0b1020;--panel:#151c2e;--line:#2a3550;--muted:#aab5cc;--accent:#ff4d5e}
+    *{box-sizing:border-box}body{margin:0;background:linear-gradient(160deg,#111827,#080b14);color:#f8fafc;font:16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    main{max-width:720px;margin:auto;padding:24px 16px 48px}.brand{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+    .logo{width:48px;height:48px;border-radius:15px;background:var(--accent);display:grid;place-items:center;font-size:24px}
+    h1{font-size:24px;margin:0}p{line-height:1.55}.muted{color:var(--muted);font-size:14px}
+    .panel{background:rgba(21,28,46,.94);border:1px solid var(--line);border-radius:18px;padding:18px;margin:14px 0}
+    label{display:block;font-size:14px;color:var(--muted);margin:10px 0 7px}
+    input{width:100%;padding:14px;border-radius:12px;border:1px solid var(--line);background:#0c1222;color:white;font-size:16px}
+    button,.button{border:0;border-radius:12px;padding:13px 15px;background:var(--accent);color:white;font-weight:700;font-size:15px;cursor:pointer;text-decoration:none;display:inline-block}
+    .secondary{background:#26324c}.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.row button{flex:1}
+    .item{padding:12px 0;border-bottom:1px solid var(--line);overflow-wrap:anywhere}.item:last-child{border-bottom:0}
+    .item-title{font-weight:650;margin-bottom:8px}.item-actions{display:flex;gap:8px;flex-wrap:wrap}.item-actions button{font-size:13px;padding:9px 11px}
+    .notice{border-left:3px solid #fbbf24;padding:10px 12px;background:#272313;border-radius:8px;font-size:14px;line-height:1.55}
+    .status{font-size:13px;color:#a7f3d0;min-height:20px;margin-top:10px}
+    footer{color:var(--muted);font-size:12px;line-height:1.5;margin-top:24px}
+  </style>
+</head>
+<body>
+<main>
+  <header class="brand">
+    <div class="logo">▶</div>
+    <div><h1>YT Helper</h1><div class="muted">ตัวช่วยเปิด YouTube และเก็บลิงก์ส่วนตัว</div></div>
+  </header>
+
+  <section class="panel">
+    <h2>เปิด YouTube</h2>
+    <p class="muted">เปิดเว็บไซต์ YouTube อย่างเป็นทางการผ่าน Safari หรือแอป YouTube ที่ติดตั้งไว้</p>
+    <div class="row">
+      <a class="button" href="https://www.youtube.com/" target="_blank" rel="noopener">เปิด YouTube</a>
+      <a class="button secondary" href="https://m.youtube.com/" target="_blank" rel="noopener">เวอร์ชันมือถือ</a>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>บันทึกลิงก์วิดีโอ</h2>
+    <label for="url">ลิงก์ YouTube</label>
+    <input id="url" type="url" placeholder="https://www.youtube.com/watch?v=..." autocomplete="url">
+    <label for="name">ชื่อที่ต้องการให้แสดง (ไม่บังคับ)</label>
+    <input id="name" type="text" placeholder="เช่น เพลงโปรด / คลิปเรียน">
+    <div class="row"><button id="save">บันทึกลิงก์</button></div>
+    <div id="status" class="status" role="status"></div>
+  </section>
+
+  <section class="panel">
+    <h2>รายการที่บันทึกไว้</h2>
+    <div id="list" class="muted">ยังไม่มีรายการที่บันทึก</div>
+  </section>
+
+  <section class="panel">
+    <h2>เกี่ยวกับการบล็อกโฆษณา</h2>
+    <div class="notice"><strong>ข้อจำกัดสำคัญ:</strong> เว็บแอปนี้ยังไม่ได้บล็อกโฆษณา YouTube และไม่สามารถควบคุมโฆษณาในแอป YouTube ได้โดยตรง</div>
+    <p class="muted">ตัวบล็อกเนื้อหาของ Safari ต้องติดตั้งแยกต่างหากจากแอปที่สร้างด้วย Xcode และใช้ได้เฉพาะกับ Safari ตามกฎตัวกรองที่กำหนด ไม่รับประกันว่าจะบล็อกโฆษณาก่อนหรือระหว่างวิดีโอ YouTube ได้</p>
+    <a class="button secondary" href="https://support.apple.com/guide/iphone/block-pop-ups-iphcba8a6e4b/ios" target="_blank" rel="noopener">คู่มือ Safari จาก Apple</a>
+  </section>
+
+  <footer>ข้อมูลรายการโปรดเก็บไว้ในพื้นที่จัดเก็บของเบราว์เซอร์บนอุปกรณ์นี้เป็นหลัก หากล้างข้อมูลเว็บไซต์ อาจทำให้รายการหายได้ อย่าใส่รหัสผ่านหรือข้อมูลลับในแอปนี้</footer>
+</main>
+<script>
+const KEY = "yt-helper-links-v1";
+const urlInput = document.getElementById("url");
+const nameInput = document.getElementById("name");
+const statusEl = document.getElementById("status");
+const listEl = document.getElementById("list");
+function readItems(){ try { return JSON.parse(localStorage.getItem(KEY) || "[]"); } catch { return []; } }
+function isYouTubeUrl(raw){
+  try { const u = new URL(raw); return ["youtube.com","www.youtube.com","m.youtube.com","youtu.be","music.youtube.com"].includes(u.hostname); }
+  catch { return false; }
+}
+function render(){
+  const items = readItems();
+  listEl.innerHTML = "";
+  if (!items.length){ listEl.textContent = "ยังไม่มีรายการที่บันทึก"; listEl.className="muted"; return; }
+  listEl.className = "";
+  items.forEach((item, index) => {
+    const wrap = document.createElement("div"); wrap.className="item";
+    const title = document.createElement("div"); title.className="item-title"; title.textContent = item.name || item.url;
+    const link = document.createElement("div"); link.className="muted"; link.textContent = item.url;
+    const actions = document.createElement("div"); actions.className="item-actions";
+    const open = document.createElement("button"); open.textContent="เปิดวิดีโอ"; open.addEventListener("click",()=>window.open(item.url,"_blank","noopener"));
+    const remove = document.createElement("button"); remove.textContent="ลบ"; remove.className="secondary"; remove.addEventListener("click",()=>{ const next=readItems(); next.splice(index,1); localStorage.setItem(KEY,JSON.stringify(next)); render(); });
+    actions.append(open,remove); wrap.append(title,link,actions); listEl.append(wrap);
+  });
+}
+document.getElementById("save").addEventListener("click",()=>{
+  const url = urlInput.value.trim();
+  if (!isYouTubeUrl(url)){ statusEl.textContent="กรุณาใส่ลิงก์ YouTube ที่ถูกต้อง"; return; }
+  const items=readItems();
+  if(items.some(x=>x.url===url)){statusEl.textContent="ลิงก์นี้อยู่ในรายการแล้ว";return;}
+  items.unshift({url,name:nameInput.value.trim(),createdAt:Date.now()});
+  localStorage.setItem(KEY,JSON.stringify(items));
+  urlInput.value=""; nameInput.value=""; statusEl.textContent="บันทึกลิงก์แล้ว"; render();
+});
+if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+  window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
+}
+render();
+</script>
+</body>
+</html>
